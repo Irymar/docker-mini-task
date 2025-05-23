@@ -2,6 +2,7 @@ version: "3.8"
 
 services:
   backand:
+    container_name: backand
     build:
       context: ./backand
       dockerfile: Dockerfile
@@ -14,6 +15,7 @@ services:
       - redis
   db:
     image: postgres:17-alpine
+    container_name: postgressql
     env_file:
       - .env
     ports:
@@ -23,6 +25,7 @@ services:
 
   redis:
     image: redis:7-alpine
+    container_name: redis
     ports:
       - "6379:6379"
 
